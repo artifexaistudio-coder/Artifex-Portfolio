@@ -27,8 +27,8 @@ export default function ContactPage() {
             <p className="mt-2 text-sm text-white/70">Hyderabad, India</p>
             <p className="mt-4 text-sm text-white/70">
               Email:{" "}
-              <a className="text-accent hover:underline" href="mailto:contact@artifexai.studio">
-                contact@artifexai.studio
+              <a className="text-accent hover:underline" href="mailto:hello@artifexai.studio">
+                hello@artifexai.studio
               </a>
             </p>
             <p className="mt-2 text-sm text-white/70">Hours: Mon–Sat, 10:00–19:00 IST</p>

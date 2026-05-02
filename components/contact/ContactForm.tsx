@@ -105,7 +105,7 @@ export function ContactForm({ variant = "full", onSuccess, className }: Props) {
       onSuccess?.();
       setTimeout(() => router.push("/thank-you"), 3000);
     } catch {
-      alert("Something went wrong. Please email contact@artifexai.studio directly.");
+      alert("Something went wrong. Please email hello@artifexai.studio directly.");
     } finally {
       setSubmitting(false);
     }
