@@ -1,0 +1,460 @@
+/* ══════════════════════════════════════════════════════════
+   AURA — Luxury Architecture & Interiors
+   Scoped Stylesheet — "Quiet Luxury" Design System
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Design Tokens ── */
+.aura-page {
+  --aura-gold: #c4b99a;
+  --aura-gold-light: #ddd4bc;
+  --aura-gold-dark: #9a8e70;
+  --aura-dark: #0c0b09;
+  --aura-darker: #080706;
+  --aura-warm: #141210;
+  --aura-surface: #1a1815;
+  --aura-text: rgba(255, 255, 255, 0.92);
+  --aura-muted: rgba(255, 255, 255, 0.45);
+  --aura-subtle: rgba(255, 255, 255, 0.12);
+}
+
+.aura-page,
+.aura-page * {
+  cursor: auto !important;
+}
+
+.aura-page {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography ── */
+.aura-heading {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.aura-body {
+  font-family: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+}
+
+.aura-label {
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+/* ── Selection ── */
+.aura-page ::selection {
+  background: rgba(196, 185, 154, 0.3);
+  color: #fff;
+}
+
+/* ── Custom Scrollbar ── */
+.aura-page::-webkit-scrollbar { width: 5px; }
+.aura-page::-webkit-scrollbar-track { background: var(--aura-dark); }
+.aura-page::-webkit-scrollbar-thumb { background: rgba(196, 185, 154, 0.15); border-radius: 10px; }
+.aura-page::-webkit-scrollbar-thumb:hover { background: rgba(196, 185, 154, 0.35); }
+
+/* ── Floating Nav ── */
+.aura-nav {
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  background: rgba(12, 11, 9, 0.7);
+  border: 1px solid rgba(196, 185, 154, 0.08);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aura-nav.scrolled {
+  background: rgba(12, 11, 9, 0.92);
+  border-color: rgba(196, 185, 154, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Marquee (hero text) ── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.aura-marquee {
+  animation: marquee-scroll 30s linear infinite;
+}
+.aura-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── Awards Marquee (slower, different direction) ── */
+@keyframes awards-scroll {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.aura-awards-marquee {
+  animation: awards-scroll 40s linear infinite;
+  display: inline-block;
+}
+.aura-awards-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── Divider ── */
+.aura-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(196, 185, 154, 0.2) 20%,
+    rgba(196, 185, 154, 0.4) 50%,
+    rgba(196, 185, 154, 0.2) 80%,
+    transparent 100%
+  );
+}
+
+/* ── Glassmorphism Card ── */
+.aura-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aura-glass:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(196, 185, 154, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Image Reveal ── */
+@keyframes aura-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0% 0 0); }
+}
+
+.aura-image-reveal {
+  clip-path: inset(0 100% 0 0);
+  animation: aura-reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+/* ── Grain Overlay ── */
+.aura-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ── Shimmer Border ── */
+@keyframes aura-border-shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.aura-shimmer-border {
+  position: relative;
+}
+
+.aura-shimmer-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 20%, rgba(196, 185, 154, 0.3) 50%, transparent 80%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: aura-border-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── Buttons ── */
+.aura-btn-primary {
+  position: relative;
+  padding: 16px 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(196, 185, 154, 0.4);
+  color: var(--aura-gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.aura-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(196, 185, 154, 0.1), rgba(196, 185, 154, 0.05));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: inherit;
+}
+
+.aura-btn-primary:hover::before { transform: scaleX(1); }
+.aura-btn-primary:hover {
+  border-color: rgba(196, 185, 154, 0.7);
+  box-shadow: 0 0 30px rgba(196, 185, 154, 0.1);
+}
+
+/* ── Timeline ── */
+.aura-timeline-line {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, rgba(196, 185, 154, 0.3) 15%, rgba(196, 185, 154, 0.3) 85%, transparent 100%);
+}
+
+.aura-timeline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--aura-gold);
+  background: var(--aura-dark);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.aura-timeline-dot.active {
+  background: var(--aura-gold);
+  box-shadow: 0 0 20px rgba(196, 185, 154, 0.4);
+}
+
+/* ── Page Transition ── */
+@keyframes aura-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.aura-page-enter {
+  animation: aura-page-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Section reveal — staggered children */
+@keyframes aura-section-in {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.aura-section-reveal > * {
+  opacity: 0;
+  animation: aura-section-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.aura-section-reveal > *:nth-child(1) { animation-delay: 0.05s; }
+.aura-section-reveal > *:nth-child(2) { animation-delay: 0.12s; }
+.aura-section-reveal > *:nth-child(3) { animation-delay: 0.19s; }
+.aura-section-reveal > *:nth-child(4) { animation-delay: 0.26s; }
+.aura-section-reveal > *:nth-child(5) { animation-delay: 0.33s; }
+
+/* Smooth anchor scroll offset (fixed nav height) */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* ── Mobile Optimization ── */
+@media (max-width: 768px) {
+  /* Typography scale-down */
+  .aura-heading { letter-spacing: -0.01em; }
+
+  /* Nav — tighter on mobile */
+  .aura-nav {
+    padding: 10px 20px;
+    gap: 16px;
+    max-width: calc(100vw - 32px);
+  }
+
+  /* Hide nav text links on very small screens, keep logo + Artifex */
+  .aura-nav .sm\:flex { display: none !important; }
+
+  /* Buttons — full width on mobile */
+  .aura-btn-primary {
+    padding: 14px 28px;
+    font-size: 0.7rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Gallery grid — single column on mobile */
+  .aura-gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Stats — 2x2 on mobile */
+  .aura-stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .aura-stats-grid > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Instagram feed — keep 3 cols but smaller */
+  .aura-insta-grid {
+    gap: 2px !important;
+  }
+
+  /* Locations — single col */
+  .aura-locations-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Virtual tour image — full height on mobile */
+  .aura-tour-image {
+    aspect-ratio: 4/3 !important;
+  }
+
+  /* Section padding — reduce on mobile */
+  .aura-section-pad {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* Timeline dots — adjust positioning */
+  .aura-timeline-line {
+    left: 10px;
+  }
+
+  /* Floating book button — smaller on mobile */
+  .aura-float-btn {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  /* Marquee — smaller text */
+  .aura-marquee span {
+    font-size: 3rem !important;
+  }
+
+  /* Awards strip — tighter */
+  .aura-awards-marquee span {
+    font-size: 0.6rem !important;
+  }
+
+  /* Hero heading — responsive */
+  .aura-hero-heading {
+    font-size: clamp(2.8rem, 12vw, 5rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  /* Philosophy image — reduce height on mobile */
+  .aura-philosophy-img {
+    aspect-ratio: 4/3 !important;
+  }
+
+  /* Process grid — single col */
+  .aura-process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Services rows — stack */
+  .aura-service-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  /* CTA buttons — stack vertically */
+  .aura-cta-buttons {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* Gallery labels — always visible on mobile (no hover) */
+  .aura-gallery-label {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Hotspot tooltips — position adjusted for mobile */
+  .aura-hotspot-tooltip {
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
+  }
+
+  /* Footer grid — single col */
+  .aura-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Stat glass card — smaller */
+  .aura-stat-card {
+    padding: 1rem !important;
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+
+  /* Floating book button — always expanded on mobile */
+  .aura-float-label {
+    display: inline !important;
+    width: auto !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens */
+  .aura-hero-heading {
+    font-size: clamp(2.2rem, 11vw, 3rem) !important;
+  }
+
+  /* Hide year badge on small screens */
+  .aura-year-badge { display: none !important; }
+
+  /* Testimonial text — smaller */
+  .aura-testimonial-text {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) {
+  /* Gallery labels always visible on touch */
+  .group .aura-gallery-label,
+  .group [class*="translate-y-2"] {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+  }
+
+  /* Locations description always visible on touch */
+  .group [class*="opacity-0"] {
+    opacity: 0.8 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Remove hover-only scale effects */
+  .group:hover img {
+    transform: none !important;
+  }
+}
+
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,227 @@
+/* ══════════════════════════════════════════════════════════
+   ELYSIAN VOWS — Luxury Wedding Planners
+   Scoped Stylesheet — "Romantic Opulence" Design System
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Smooth Scrolling — applied globally ── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+.elysian-page {
+  --elysian-ivory: #fdfbf7;
+  --elysian-champagne: #f5efdf;
+  --elysian-gold: #c4b99a;
+  --elysian-blush: #f8ece8;
+  --elysian-sage: #e8ede4;
+  --elysian-charcoal: #1a1a1a;
+  --elysian-text: #2a2a2a;
+  --elysian-text-muted: rgba(42, 42, 42, 0.6);
+  --elysian-accent: #9a8e70;
+}
+
+.elysian-page {
+  background-color: var(--elysian-ivory);
+  color: var(--elysian-text);
+  scroll-behavior: smooth;
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page entrance animation ── */
+@keyframes elysian-page-in {
+  from { opacity: 0; transform: translateY(16px); filter: blur(3px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+}
+
+.elysian-page-enter {
+  animation: elysian-page-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Typography ── */
+.elysian-heading {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.elysian-serif-italic {
+  font-family: var(--font-playfair), "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.elysian-label {
+  font-family: var(--font-inter), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--elysian-accent);
+}
+
+/* ── Selection ── */
+.elysian-page ::selection {
+  background: rgba(196, 185, 154, 0.25);
+  color: #2a2a2a;
+}
+
+/* ── Custom Cursor — elegant dark diamond, always visible ── */
+.elysian-page,
+.elysian-page * {
+  cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='16,4 28,16 16,28 4,16' stroke='%232a2a2a' stroke-width='1.5' fill='rgba(196%2C185%2C154%2C0.2)'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%232a2a2a'/%3E%3C/svg%3E") 16 16, crosshair !important;
+}
+
+/* ── Bloom Effect ── */
+.elysian-bloom {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: radial-gradient(ellipse at 50% 0%, rgba(245, 239, 223, 0.15) 0%, transparent 70%);
+  mix-blend-mode: soft-light;
+}
+
+/* ── Buttons ── */
+.elysian-btn {
+  display: inline-block;
+  padding: 1.1rem 2.5rem;
+  border: 1px solid var(--elysian-gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--font-inter), sans-serif;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  color: var(--elysian-text);
+}
+
+.elysian-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--elysian-gold);
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.elysian-btn:hover { color: white; }
+.elysian-btn:hover::before { transform: translateY(0); }
+
+/* ── Divider ── */
+.elysian-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--elysian-gold), transparent);
+  opacity: 0.2;
+}
+
+/* ── Awards Marquee ── */
+@keyframes elysian-awards-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.33%); }
+}
+
+.elysian-awards-marquee {
+  display: inline-block;
+  animation: elysian-awards-scroll 35s linear infinite;
+}
+
+.elysian-awards-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ── Smooth anchor offset ── */
+[id] { scroll-margin-top: 80px; }
+
+/* ── Remove all section gaps / white space ── */
+.elysian-page section + section {
+  margin-top: 0 !important;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .elysian-heading { letter-spacing: -0.01em; }
+
+  /* Nav */
+  nav .hidden { display: none !important; }
+
+  /* Hero heading */
+  .elysian-page h1 {
+    font-size: clamp(3rem, 14vw, 6rem) !important;
+    line-height: 0.92 !important;
+  }
+
+  /* Stats — 2x2 */
+  .elysian-page .flex.flex-wrap.sm\\:flex-nowrap {
+    flex-wrap: wrap !important;
+  }
+
+  /* Gallery — single col */
+  .md\\:col-span-7,
+  .md\\:col-span-5 {
+    grid-column: span 12 !important;
+  }
+
+  /* Process rows — stack */
+  .sm\\:grid-cols-12 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CTA buttons — stack */
+  .elysian-page .flex-col.sm\\:flex-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .elysian-btn {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Instagram feed — keep 3 cols but smaller gap */
+  .elysian-page .grid.grid-cols-3 {
+    gap: 2px !important;
+  }
+
+  /* Footer — single col */
+  .elysian-page footer .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Floating button — always show label */
+  .elysian-page .fixed.bottom-8 span {
+    display: inline !important;
+    width: auto !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .elysian-page h1 {
+    font-size: clamp(2.5rem, 13vw, 4rem) !important;
+  }
+
+  .elysian-page h2 {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+  }
+}
+
+/* Touch devices — gallery labels always visible */
+@media (hover: none) {
+  .elysian-page .group [class*="opacity-0"] {
+    opacity: 0.9 !important;
+  }
+  .elysian-page .group img {
+    transform: none !important;
+  }
+}
