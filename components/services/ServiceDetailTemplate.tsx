@@ -169,14 +169,15 @@ function AuraDemoSection() {
 }
 
 export function ServiceDetailTemplate({ data }: { data: ServiceContent }) {
-  const showBeforeAfter = data.slug === "interior-visualization";
-  const isWebDev = data.slug === "custom-website-building";
+  const slug = data.slug as string;
+  const showBeforeAfter = slug === "interior-visualization";
+  const isWebDev = slug === "custom-website-building";
 
   return (
     <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 pb-24 pt-28">
       <Breadcrumbs title={data.title} />
 
-      <section className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-center">
+      <section className="mt-10 grid gap-10 lg:grid-cols-[1fr_360px]">
         <div>
           <p className="text-xs tracking-[0.35em] text-white/55 uppercase">Service</p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight">
@@ -325,7 +326,7 @@ export function ServiceDetailTemplate({ data }: { data: ServiceContent }) {
         <div className="mt-8 grid gap-5 md:grid-cols-2">
           {data.testimonials.map((t) => (
             <blockquote key={t.quote} className="glass rounded-2xl border border-white/10 p-6">
-              <p className="text-white/80 leading-relaxed">"{t.quote}"</p>
+              <p className="text-white/80 leading-relaxed">&quot;{t.quote}&quot;</p>
               <footer className="mt-4 text-sm text-white/55">
                 — {t.author}, <span className="text-white/70">{t.role}</span>
               </footer>
@@ -336,7 +337,7 @@ export function ServiceDetailTemplate({ data }: { data: ServiceContent }) {
 
       <section className="mt-16 glass rounded-3xl border border-white/10 p-6 sm:p-10">
         <h2 className="text-2xl font-extrabold text-white">Ready to start?</h2>
-        <p className="mt-2 text-white/65">Tell us what you need—we'll respond with a clear plan, timeline, and estimate.</p>
+        <p className="mt-2 text-white/65">Tell us what you need—we&apos;ll respond with a clear plan, timeline, and estimate.</p>
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <ContactForm variant="compact" />
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
