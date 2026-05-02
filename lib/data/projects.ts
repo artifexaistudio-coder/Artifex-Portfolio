@@ -64,7 +64,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "elysian-vows",
     title: "Elysian Vows — Luxury Weddings",
-    category: "Immersive Event Showcase",
+    category: "Custom Website Building",
     tech: "Next.js, Framer Motion, GSAP",
     result:
       "A romantic, high-end digital experience that doubled lead generation for destination weddings within the first 3 months.",
@@ -75,7 +75,7 @@ export const PROJECTS: Project[] = [
     challenge:
       "The client needed to move away from a standard portfolio layout to something that felt as curated and exclusive as the weddings they produce. The challenge was balancing high-res visual density with smooth performance.",
     solution:
-      "We implemented a 'cinematic narrative' scroll experience. Using soft-focus parallax, bloom effects, and horizontal story-scrolling, we created a digital journey that feels like flipping through a high-end bridal editorial.",
+      "We implemented a cinematic narrative scroll experience. Using soft-focus parallax, bloom effects, and horizontal story-scrolling, we created a digital journey that feels like flipping through a high-end bridal editorial.",
     metrics: [
       { label: "Engagement Rate", value: "84%" },
       { label: "Time on Site", value: "5m 30s" },
@@ -84,7 +84,7 @@ export const PROJECTS: Project[] = [
     ],
     testimonial: {
       quote:
-        "Elysian Vows now has a digital home that is as beautiful as the vows our couples exchange. It's truly a masterpiece of emotional design.",
+        "Elysian Vows now has a digital home that is as beautiful as the vows our couples exchange. It is truly a masterpiece of emotional design.",
       author: "Elena Rossi",
       role: "Creative Director, Elysian Vows",
     },
