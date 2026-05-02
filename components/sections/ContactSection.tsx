@@ -53,10 +53,10 @@ export function ContactSection() {
               <div>
                 <p className="text-white/55">Email</p>
                 <a
-                  href="mailto:akashlokam1224@gmail.com"
+                  href="mailto:hello@artifexai.studio"
                   className="text-white hover:text-accent transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 rounded"
                 >
-                  akashlokam1224@gmail.com
+                  hello@artifexai.studio
                 </a>
               </div>
               <div>

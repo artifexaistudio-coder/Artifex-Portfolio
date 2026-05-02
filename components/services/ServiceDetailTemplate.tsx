@@ -342,8 +342,8 @@ export function ServiceDetailTemplate({ data }: { data: ServiceContent }) {
           <ContactForm variant="compact" />
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">Prefer email?</p>
-            <a href="mailto:contact@artifexai.studio" className="mt-2 inline-block text-accent hover:underline">
-              contact@artifexai.studio
+            <a href="mailto:hello@artifexai.studio" className="mt-2 inline-block text-accent hover:underline">
+              hello@artifexai.studio
             </a>
             <p className="mt-6 text-sm text-white/65">
               Typical response time: <span className="text-white">24 hours</span>.

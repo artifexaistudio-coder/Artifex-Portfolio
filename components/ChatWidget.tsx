@@ -23,8 +23,8 @@ export function ChatWidget() {
             <p className="text-sm font-semibold text-white">Artifex Assistant</p>
             <p className="mt-2 text-sm text-white/70">
               Hi! Tell us about your project—our team replies within 24 hours. For urgent work, email{" "}
-              <a className="text-accent underline" href="mailto:contact@artifexai.studio">
-                contact@artifexai.studio
+              <a className="text-accent underline" href="mailto:hello@artifexai.studio">
+                hello@artifexai.studio
               </a>
               .
             </p>
